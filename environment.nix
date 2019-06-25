@@ -79,7 +79,16 @@ in {
         ver = "1.0.22";
         sha256 = "0j1ndjpdwpi0zkavrldx7pkwijjnf4r6945kdpfsjkqayy8v94h9";
       } { inherit (pkgs) cairo; });
-      gi-xlib = addGObjectIntrospection super.gi-xlib;
+      gi-xlib = addGObjectIntrospection (self.callHackageDirect {
+        pkg = "gi-xlib";
+        ver = "2.0.7";
+        sha256 = "1in49m25l5b15ad3w77hanmabyydr65yrpb1h75pprfmms7par52";
+      } { });
+      gtk-sni-tray = addGObjectIntrospection (self.callHackageDirect {
+        pkg = "gtk-sni-tray";
+        ver = "0.1.6.0";
+        sha256 = "0y7v3icw6plazy68119jirvlwsvxapwzik3r5pm98k4s3z4z2qjn";
+        }  { inherit (pkgs) gtk3; });
       gi-glib = addGObjectIntrospection (self.callHackageDirect {
         pkg = "gi-glib";
         ver = "2.0.22";
